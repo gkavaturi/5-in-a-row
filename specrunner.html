@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-framework="angularjs">
+  <head>
+    <meta charset="utf-8">
+    <title>Connect4</title>
+    <link rel="stylesheet" href="css/qunit-1.14.0.css">
+    <script src="js/qunit-1.14.0.js"></script>
+  </head>
+  <body>
+    <div id="qunit-fixture">
+      <div id="top-bar">
+        <h1 id="main-title" class="span5">Lorem Ipsum</h1>
+        <div id="player1-title" class="span2 active-title">Player 1</div>
+        <div id="player2-title" class="span2">Player 2</div>
+      </div>
+      <div id="container">
+      </div>
+    </div>
+    <div id="qunit">
+    </div>
+    <script>
+      var Connect4 = {
+        mainEl : 'container'
+      };
+    </script>
+    <script src="js/c4.js"></script>
+    <script>
+    document.getElementsByClassName('block')[0].click();
+    window.onload = function(){
+      var script = document.createElement('script');
+      script.type ='text/javascript';
+      script.src = 'js/c4-unit-tests.js';
+      document.body.appendChild(script);
+    }
+    </script>
+  </body>
+</html>
