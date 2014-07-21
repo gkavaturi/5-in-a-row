@@ -1,0 +1,203 @@
+
+@-webkit-keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@-o-keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@-ms-keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+@-webkit-keyframes bounce {
+  0%{
+    -webkit-transform: translate(0px, -800px);
+  }
+  100%{
+    -webkit-transform: translate(0px, 0px);
+  }
+}
+@-moz-keyframes bounce {
+  0%{
+    -moz-transform: translate(0px, -800px);
+  }
+  100%{
+    -moz-transform: translate(0px, 0px);
+  }
+}
+@-o-keyframes bounce {
+  0%{
+    -o-transform: translate(0px, -800px);
+  }
+  100%{
+    -o-transform: translate(0px, 0px);
+  }
+}
+
+@-ms-keyframes bounce {
+  0%{
+    -ms-transform: translate(0px, -800px);
+  }
+  100%{
+    -ms-transform: translate(0px, 0px);
+  }
+}
+@keyframes bounce{
+  0%{
+    transform: translate(100px, 0px);
+  }
+  100%{
+    transform: translate(0px, 0px);
+  }
+}
+#top-bar{
+  height: 80px;
+  background-color: rgb(25, 84, 138);
+}
+
+*[class^="span"]{
+  float: left;
+  position: relative;
+}
+
+.span5{
+  width: 50%;
+}
+
+.span2{
+  width: 20%;
+}
+
+#top-bar .active-title{
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 32px !important;
+  margin: 22px 0px !important;
+}
+
+#top-bar div[id$="title"]{
+  margin: 26px 0px;
+  font-size: 24px;
+}
+
+#main-title{
+  margin-left: 2%;
+  color: white;
+  word-spacing: 5px;
+}
+
+#player1-title{
+  color: red;
+}
+
+#player2-title{
+  color: yellow;
+}
+
+#top-bar, #container{
+  min-width: 800px;
+}
+
+#container table{
+  width: 100%;
+  border-collapse: collapse;
+  position: relative;
+  margin-left: 0px;
+  float: left;
+}
+
+.blocks{
+  border: 1px solid black;
+  border-spacing: 0px;
+}
+
+.row{
+  width: 700px;
+  border: 1px solid black;
+}
+
+.block{
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(153, 153, 153);
+  border-collapse: collapse;
+}
+
+.piece{
+  border-radius: 50%;
+  margin: auto;
+  width: 80px;
+  height: 80px;
+}
+
+.empty-piece{
+  background-color: white;
+  -webkit-box-shadow: inset -2px -3px 1px 1px lightgrey;
+  -moz-box-shadow: inset -2px -3px 1px 1px lightgrey;
+  box-shadow: inset -2px -3px 1px 1px lightgrey;
+  cursor: pointer;
+  z-index: -100;
+}
+
+.empty-piece-trans{
+  margin-top: -80px;
+}
+
+.yellow-piece{
+  background-image: -moz-radial-gradient(20px 20px 45deg, circle cover, yellow 0%, rgb(60, 42, 11) 100%, yellow 95%);
+  background-image: -webkit-radial-gradient(20px 20px, circle cover, yellow, rgb(60, 42, 11));
+  background-image: radial-gradient(20px 20px 45deg, circle cover, yellow 0%, rgb(60, 42, 11) 100%, yellow 95%);
+}
+
+
+.red-piece{
+  background-image: -moz-radial-gradient(20px 20px 45deg, circle cover, red 0%, rgb(60, 42, 11) 100%, red 95%);
+  background-image: -webkit-radial-gradient(20px 20px, circle cover, red, rgb(60, 42, 11));
+  background-image: radial-gradient(20px 20px 45deg, circle cover, red 0%, rgb(60, 42, 11) 100%, red 95%);
+}
+
+.active-piece{
+  -webkit-animation: bounce 2s 1 forwards;
+  -moz-animation: bounce 2s 1 forwards;
+  -ms-animation: bounce 2s 1 forwards;
+  animation: bounce 2s 1 forwards;
+  margin-top: -80px;
+}
+
+.win-combo{
+  background-color: rgb(96, 185, 114);
+}
+
+.near-score-piece{
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 3s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 3s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+}
+
+
+
+
