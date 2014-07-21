@@ -108,6 +108,9 @@
   color: yellow;
 }
 
+#top-bar, #container{
+  min-width: 800px;
+}
 
 #container table{
   width: 100%;
@@ -194,5 +197,7 @@
   -ms-animation-iteration-count: infinite;
   -ms-animation-timing-function: linear;
 }
+
+
 
 

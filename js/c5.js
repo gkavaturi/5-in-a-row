@@ -4,7 +4,7 @@
 
   var generateLayout = function(){
     var xRow = 6,
-        yCol = 7,
+        yCol = 9,
         board = [],
         iter = null,
         iter2 = null,
@@ -46,11 +46,13 @@
   var calculateHorizontal = App.calculateHorizontal = function(xRow, yCol, player){
     var l1 = App.board[xRow][yCol-1],
         l2 = App.board[xRow][yCol-2],
-        l3 = App.board[xRow][yCol-3],
+        l3 = App.board[xRow][yCol-3]
+        l4 = App.board[xRow][yCol-4],
         r1 = App.board[xRow][yCol+1],
         r2 = App.board[xRow][yCol+2],
         r3 = App.board[xRow][yCol+3],
-        wins = (l3 === player && l2 === player && l1 === player) || (l2 === player && l1 === player && r1 === player) || (l1 === player && r1 === player && r2 === player) || (r1 === player && r2 === player && r3 === player) ;
+        r4 = App.board[xRow][yCol+4]
+        wins = (l4 === player && l3 === player && l2 === player && l1 === player) || (l3 === player && l2 === player && l1 === player && r1 == player) || (l2 === player && l1 === player && r1 === player && r2 === player) || (l1 === player && r1 === player && r2 === player && r3 === player) || (r1 === player && r2 === player && r3 === player && r4 === player) ;
 
     if (wins)
       return true;
@@ -63,10 +65,12 @@
     var t1 = App.board[xRow-1] ? App.board[xRow-1][yCol] : 0,
         t2 = App.board[xRow-2] ? App.board[xRow-2][yCol] : 0
         t3 = App.board[xRow-3] ? App.board[xRow-3][yCol] : 0,
+        t4 = App.board[xRow-4] ? App.board[xRow-4][yCol] : 0,
         b1 = App.board[xRow+1] ? App.board[xRow+1][yCol] : 0,
         b2 = App.board[xRow+2] ? App.board[xRow+2][yCol] : 0,
         b3 = App.board[xRow+3] ? App.board[xRow+3][yCol] : 0,
-        wins = (t3 === player && t2 === player && t1 === player) || (t2 === player && t1 === player && b1 === player) || (t1 === player && b1 === player && b2 === player) || (b1 === player && b2 === player && b3 === player) ;
+        b4 = App.board[xRow+4] ? App.board[xRow+4][yCol] : 0,
+        wins = (t4 === player && t3 === player && t2 === player && t1 === player) || (t3 === player && t2 === player && t1 === player && b1 === player) || (t2 === player && t1 === player && b1 === player && b2 === player) || (t1 === player && b1 === player && b2 === player && b3 === player) || (b1 === player && b2 === player && b3 === player && b4 === player);
 
     if (wins)
       return true;
@@ -78,18 +82,22 @@
     var dtl1 = App.board[xRow-1] ? App.board[xRow-1][yCol-1] : 0,
         dtl2 = App.board[xRow-2] ? App.board[xRow-2][yCol-2] : 0,
         dtl3 = App.board[xRow-3] ? App.board[xRow-3][yCol-3] : 0,
+        dtl4 = App.board[xRow-4] ? App.board[xRow-4][yCol-4] : 0,
         dbl1 = App.board[xRow+1] ? App.board[xRow+1][yCol-1] : 0,
         dbl2 = App.board[xRow+2] ? App.board[xRow+2][yCol-2] : 0,
         dbl3 = App.board[xRow+3] ? App.board[xRow+3][yCol-3] : 0,
+        dbl4 = App.board[xRow+4] ? App.board[xRow+4][yCol-4] : 0,
         dtr1 = App.board[xRow-1] ? App.board[xRow-1][yCol+1] : 0,
         dtr2 = App.board[xRow-2] ? App.board[xRow-2][yCol+2] : 0,
         dtr3 = App.board[xRow-3] ? App.board[xRow-3][yCol+3] : 0,
+        dtr4 = App.board[xRow-4] ? App.board[xRow-4][yCol+4] : 0,
         dbr1 = App.board[xRow+1] ? App.board[xRow+1][yCol+1] : 0,
         dbr2 = App.board[xRow+2] ? App.board[xRow+2][yCol+2] : 0,
-        dbr3 = App.board[xRow+3] ? App.board[xRow+3][yCol+3] : 0;
+        dbr3 = App.board[xRow+3] ? App.board[xRow+3][yCol+3] : 0,
+        dbr4 = App.board[xRow+4] ? App.board[xRow+4][yCol+4] : 0;
 
-    var win1 = (dtl3 === player && dtl2 === player && dtl1 === player) || (dtl2 === player && dtl1 === player && dbr1 === player) || (dtl1 === player && dbr1 === player && dbr2 === player) || (dbr1 === player && dbr2 === player && dbr3 === player),
-        win2 = (dbl3 === player && dbl2 === player && dbl1 === player) || (dbl2 === player && dbl1 === player && dtr1 === player) || (dbl1 === player && dtr1 === player && dtr2 === player) || (dtr1 === player && dtr2 === player && dtr3 === player);
+    var win1 = (dtl4 === player && dtl3 === player && dtl2 === player && dtl1 === player) || ( dtl3 === player && dtl2 === player && dtl1 === player && dbr1 === player) || (dtl2 === player && dtl1 === player && dbr1 === player && dbr2 === player) || (dtl1 === player && dbr1 === player && dbr2 === player && dbr3 === player) || (dbr1 === player && dbr2 === player && dbr3 === player && dbr4 === player),
+        win2 = (dbl4 && dbl3 === player && dbl2 === player && dbl1 === player) || (dbl3 === player && dbl2 === player && dbl1 === player && dtr1 === player) || (dbl2 === player && dbl1 === player && dtr1 === player && dtr2 === player) || (dbl1 === player && dtr1 === player && dtr2 === player && dtr3 === player) || (dtr1 === player && dtr2 === player && dtr3 === player && dtr4 === player);
 
     if (win1 || win2)
       return true;
@@ -148,4 +156,4 @@
 
   generateLayout();
   addEventsToBoard();
-})(Connect4)
+})(Connect5)

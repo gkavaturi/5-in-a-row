@@ -1,0 +1,1 @@
+Simple Classic Connect 5 in a row game. No end. Players keep playing until all blocks are filled. Unit tests under /specrunner.html (qUnit).
