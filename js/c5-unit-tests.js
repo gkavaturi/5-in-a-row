@@ -3,7 +3,7 @@
   QUnit.test('All blocks in place', function(assert) {
     var rows = App.board.length,
         expectedRows = 6, 
-        expectedCols = 7;
+        expectedCols = 9;
     assert.ok(rows === expectedRows, 'all rows check');
     for (var i = 0; i < rows; i++){
       assert.ok(App.board[i].length === expectedCols, i+' row has '+expectedCols+' columns');
@@ -13,7 +13,7 @@
   QUnit.test('blocks DOM all set', function(assert) {
     var rows = document.getElementsByClassName('row'),
         expectedRows = 6, 
-        expectedCols = 7;
+        expectedCols = 9;
     assert.ok(rows.length === expectedRows, 'All rows DOM ok');
     for (var i = 0; i < rows.length; i++){
       var cols = rows[i].getElementsByTagName('td');
@@ -53,4 +53,4 @@
     assert.ok( activeCell > 0, 'Ball sinks to lowest level Check');
   });
 
-})(Connect4)
+})(Connect5)
